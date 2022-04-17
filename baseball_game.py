@@ -22,4 +22,25 @@ def get_numbers():
     
     return num_list
 
-print(get_numbers())
+def judgement(number, answer) :
+    strike = 0
+    ball = 0
+    i = 0
+
+    while i < len(number):
+        if number[i] == answer[i] :
+            strike += 1
+        elif number[i] in answer :
+            ball += 1
+        i+=1
+
+    if strike != False and ball != False :
+        return f'{strike} strike, {ball} ball'
+    elif strike != False:
+        return f'{strike} strike'
+    elif ball !=  False:
+        return f'{ball} ball'
+    else : 
+        return '낫싱'
+
+print(judgement(generate_numbers(), get_numbers()))
