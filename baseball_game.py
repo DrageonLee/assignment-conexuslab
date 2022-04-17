@@ -43,4 +43,22 @@ def judgement(number, answer) :
     else : 
         return '낫싱'
 
-print(judgement(generate_numbers(), get_numbers()))
+def baseball_game():
+    number = generate_numbers()
+    
+    while True :
+        game = judgement(number, get_numbers())
+        print(game)
+        if game == '3 strike' :
+            print('3개의 숫자를 모두 맞추셨습니다! 게임 종료')
+            break
+
+    againOrNot = int(input('게임을 새로 시작하려면1, 종료하려면 2를 입력하세요.'))
+    if againOrNot == 1 :
+        return baseball_game()
+    elif againOrNot == 2 :
+        return '게임 종료. 안녕히 가세요.'
+    else :
+        return againOrNot
+
+print(baseball_game())
